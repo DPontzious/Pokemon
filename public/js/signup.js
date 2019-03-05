@@ -8,9 +8,8 @@ $(document).ready(function() {
     var emailInput = $("#exampleInputEmail1");
     var passwordInput = $("input#password-input");
     // When the signup button is clicked, we validate the email and password are not blank
-    signUpForm.on("submit", function(event) {
+    $("#signup").on("click", function(event) {
       event.preventDefault();
-      console.log("signup onclick")
       var userData = {
         email: emailInput.val().trim(),
         password: passwordInput.val().trim()
@@ -37,7 +36,7 @@ $(document).ready(function() {
       );
 
     });
-  
+    
     // Does a post to the signup route. If successful, we are redirected to the members page
     // Otherwise we log any errors
     function signUpUser(email, password) {
