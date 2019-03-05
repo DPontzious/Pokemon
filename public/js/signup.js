@@ -20,18 +20,19 @@ $(document).ready(function() {
       }
   
       // If we have an email and password, run the signUpUser function
-      signUpUser(userData.email, userData.password);
-      emailInput.val("");
-      passwordInput.val("");
+      // signUpUser(userData.email, userData.password);
+      // emailInput.val("");
+      // passwordInput.val("");
       
       $.ajax("/api/signup", {
         type: "POST",
         data: userData
       }).then(
-        function() {
+        function(result) {
           console.log("created new user");
+          console.log(result)
           // Reload the page to get the updated list
-          location.reload();
+          // location.reload();
         }
       );
 
@@ -39,18 +40,18 @@ $(document).ready(function() {
     
     // Does a post to the signup route. If successful, we are redirected to the members page
     // Otherwise we log any errors
-    function signUpUser(email, password) {
-      console.log(email)
-      console.log(password)
-      $.post("/api/signup", {
-        email: email,
-        password: password
-      }).then(function(data) {
-        window.location.replace(data);
-        console.log("signup")
-        // If there's an error, handle it by throwing up a bootstrap alert
-      }).catch(handleLoginErr);
-    }
+    // function signUpUser(email, password) {
+    //   console.log(email)
+    //   console.log(password)
+    //   $.post("/api/signup", {
+    //     email: email,
+    //     password: password
+    //   }).then(function(data) {
+    //     window.location.replace(data);
+    //     console.log("signup")
+    //     // If there's an error, handle it by throwing up a bootstrap alert
+    //   }).catch(handleLoginErr);
+    // }
   
     function handleLoginErr(err) {
       $("#alert .msg").text(err.responseJSON);
