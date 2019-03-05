@@ -1,0 +1,13 @@
+.list-group-item {
+  line-height: 2.5;
+}
+
+body{
+  /* background-image: url("http://medias.fantrippers.com/img/poke%CC%81mon.jpg"); */
+  background-image: url("/images/pokemon.jpg");
+  
+}
+
+.jumbotron{
+  margin-top: 225px;
+}
