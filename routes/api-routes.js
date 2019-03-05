@@ -1,6 +1,6 @@
 var db = require("../models");
 var passport = require("../config/passport");
-var question = require("../models/questionsinfo");
+// var question = require("../views/layouts/data/questionsinfo");
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -51,43 +51,43 @@ module.exports = function (app) {
       });
     }
   });
-  app.get("/api/questions", function (req, res) {
-    res.json(question);
-  })
-  app.post("/api/question", function (req, res) {
+  // app.get("/api/questions", function (req, res) {
+  //   res.json(question);
+  // })
+  // app.post("/api/question", function (req, res) {
 
-    questionsinfo.push(req.body);
-    // console.log(profiles);
+  //   questionsinfo.push(req.body);
+  // console.log(profiles);
 
-    // var totalArry = []
-    // for (let i = 0; i < profiles.length - 1; i++) {
-    //   const scoreNum = profiles[i].scores;
-    //   const newScore = req.body.scores;
+  // var totalArry = []
+  // for (let i = 0; i < profiles.length - 1; i++) {
+  //   const scoreNum = profiles[i].scores;
+  //   const newScore = req.body.scores;
 
-    // console.log(scoreNum);
-    //   console.log(newScore);
-    //   var total = 0;
-    //   for (let i = 0; i < scoreNum.length; i++) {
-    //     var diff = scoreNum[i] - newScore[i];
-    //     var value = Math.abs(diff);
+  // console.log(scoreNum);
+  //   console.log(newScore);
+  //   var total = 0;
+  //   for (let i = 0; i < scoreNum.length; i++) {
+  //     var diff = scoreNum[i] - newScore[i];
+  //     var value = Math.abs(diff);
 
-    //     total += value;
+  //     total += value;
 
-    //   }
-    //   totalArry.push(total);
-    //   console.log(total);
+  //   }
+  //   totalArry.push(total);
+  //   console.log(total);
 
-    // }
-    // console.log(totalArry);
+  // }
+  // console.log(totalArry);
 
-    // var iMV = totalArry.indexOf(Math.min.apply(Math, totalArry))
-    // var match = profiles[iMV];
-    // res.json(match);
+  // var iMV = totalArry.indexOf(Math.min.apply(Math, totalArry))
+  // var match = profiles[iMV];
+  // res.json(match);
 
-    // console.log(match);
-    // console.log(iMV)
+  // console.log(match);
+  // console.log(iMV)
 
-  });
+  // });
 
 
   //   app.get("/api/friends", function (req, res) {
