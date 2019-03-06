@@ -7,13 +7,7 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 15]
             }
         },
-        poketype: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1, 15]
-            }
-        },
+        
         pokethirsty: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
@@ -29,7 +23,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             defaultValue: true
         },
-        pokesick: {
+        pokebored: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: true
