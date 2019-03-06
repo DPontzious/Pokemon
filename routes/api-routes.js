@@ -7,10 +7,11 @@ module.exports = function (app) {
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
+    console.log(req.user);
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
-    res.json("/members");
+    res.send("/members");
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -51,43 +52,43 @@ module.exports = function (app) {
       });
     }
   });
-  app.get("/api/questions", function (req, res) {
-    res.json(question);
-  })
-  app.post("/api/question", function (req, res) {
+  // app.get("/api/questions", function (req, res) {
+  //   res.json(question);
+  // })
+  // app.post("/api/question", function (req, res) {
 
-    questionsinfo.push(req.body);
-    // console.log(profiles);
+  //   questionsinfo.push(req.body);
+  // console.log(profiles);
 
-    // var totalArry = []
-    // for (let i = 0; i < profiles.length - 1; i++) {
-    //   const scoreNum = profiles[i].scores;
-    //   const newScore = req.body.scores;
+  // var totalArry = []
+  // for (let i = 0; i < profiles.length - 1; i++) {
+  //   const scoreNum = profiles[i].scores;
+  //   const newScore = req.body.scores;
 
-    // console.log(scoreNum);
-    //   console.log(newScore);
-    //   var total = 0;
-    //   for (let i = 0; i < scoreNum.length; i++) {
-    //     var diff = scoreNum[i] - newScore[i];
-    //     var value = Math.abs(diff);
+  // console.log(scoreNum);
+  //   console.log(newScore);
+  //   var total = 0;
+  //   for (let i = 0; i < scoreNum.length; i++) {
+  //     var diff = scoreNum[i] - newScore[i];
+  //     var value = Math.abs(diff);
 
-    //     total += value;
+  //     total += value;
 
-    //   }
-    //   totalArry.push(total);
-    //   console.log(total);
+  //   }
+  //   totalArry.push(total);
+  //   console.log(total);
 
-    // }
-    // console.log(totalArry);
+  // }
+  // console.log(totalArry);
 
-    // var iMV = totalArry.indexOf(Math.min.apply(Math, totalArry))
-    // var match = profiles[iMV];
-    // res.json(match);
+  // var iMV = totalArry.indexOf(Math.min.apply(Math, totalArry))
+  // var match = profiles[iMV];
+  // res.json(match);
 
-    // console.log(match);
-    // console.log(iMV)
+  // console.log(match);
+  // console.log(iMV)
 
-  });
+  // });
 
 
   //   app.get("/api/friends", function (req, res) {
