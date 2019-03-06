@@ -32,4 +32,5 @@ $(document).ready(function () {
             $(".img1").css('width', '200px');
         })
         $("#results").modal;
-});
+    });
+})
