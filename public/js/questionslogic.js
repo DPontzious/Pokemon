@@ -16,6 +16,7 @@ $(document).ready(function () {
                 $("#q10").val().trim()
             ]
         };
+        console.log(userInput)
         // axios.post('/api/questions', userInput)
         //     .then(function (response) {
         //         console.log(response);
@@ -24,18 +25,18 @@ $(document).ready(function () {
         //         console.log(error);
         //     });
 
-        $.post("/api/friends", match, function (data) {
-            $.post("/api/friends", userData, function (data) {
+        // $.post("/api/friends", match, function (data) {
+        //     $.post("/api/friends", userData, function (data) {
 
-                $("#match-name").text(data.name);
-                $("#match-img").attr("src", data.photo);
+        //         $("#match-name").text(data.name);
+        //         $("#match-img").attr("src", data.photo);
 
-                $("#results-modal").modal("toggle");
-                console.log("posted");
-                console.log(userData);
+        //         $("#results-modal").modal("toggle");
+        //         console.log("posted");
+        //         console.log(userData);
 
-            });
-        })
-        $("#results").modal;
+        //     });
+        // })
+        // $("#results").modal;
     });
 });

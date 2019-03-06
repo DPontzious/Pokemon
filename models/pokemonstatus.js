@@ -1,5 +1,9 @@
 module.exports = function (sequelize, DataTypes) {
     var pokestatus = sequelize.define("pokestatus", {
+        UserID: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
         pokeName: {
             type: DataTypes.STRING,
             allowNull: false,

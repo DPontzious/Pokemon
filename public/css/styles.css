@@ -3,10 +3,8 @@
 }
 
 body{
-  /* background-image: url("http://medias.fantrippers.com/img/poke%CC%81mon.jpg"); */
   background-image: url("/images/pokemon.jpg");
   background-size: contain;
-  
 }
 
 .jumbotron{
