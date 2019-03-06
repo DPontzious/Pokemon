@@ -6,9 +6,11 @@ module.exports = function (app) {
         // res.sendFile(path.join(__dirname, "../views/questions"));
         res.render("questions");
     });
+    
+    // Character status and interaction page route
     app.get("/status", (req, res) => {
-        res.sendFile(path.join(__dirname, "../../views/layouts/status"));
-        res.render("questions");
+        
+        res.render("status");
     });
 
 }
