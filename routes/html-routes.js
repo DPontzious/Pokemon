@@ -12,6 +12,10 @@ module.exports = function (app) {
 
         res.render("status");
     });
+    app.get("/questions", (req, res) => {
+
+        res.render("questmodal");
+    });
 
 }
 

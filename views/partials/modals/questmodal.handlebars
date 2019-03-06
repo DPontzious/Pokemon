@@ -1,6 +1,18 @@
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Survey Title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+          {{!-- start of questions --}}
 <div class="container">
 
-  <h2>Survey Questions</h2>
+  {{!-- <h2>Survey Questions</h2> --}}
   <hr>
 
   <h3><strong>Question 1</strong></h3>
@@ -116,6 +128,8 @@
   <br>
   <br>
 
+  {{!-- end of questions --}}
+
   <button type="submit" class="btn btn-primary btn-lg btn-block" id="done"><i class="fa fa-check-circle" aria-hidden="true"></i>
     Done-zo</button>
 
@@ -128,22 +142,25 @@
   </footer>
 
 </div>
-<script src="js/questionslogic.js"> </script>
-{{!-- <div id="results-modal" class="modal fade" role="dialog">
-  <div class="modal-dialog"> --}}
-    {{!--
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h2 class="modal-title"><strong>Best Match</strong></h2>
-      </div>
-      <div class="modal-body">
-        <h2 id="match-name"></h2>
-        <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Log In</button>
       </div>
     </div>
   </div>
-</div> --}}
+</div>
+
+<script src="js/questionslogic.js"></script>
