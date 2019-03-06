@@ -6,5 +6,10 @@ module.exports = function (app) {
         // res.sendFile(path.join(__dirname, "../views/questions"));
         res.render("questions");
     });
+    app.get("/status", (req, res) => {
+        res.sendFile(path.join(__dirname, "../../views/layouts/status"));
+        res.render("questions");
+    });
+
 }
 

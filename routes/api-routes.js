@@ -52,6 +52,11 @@ module.exports = function (app) {
       });
     }
   });
+
+// route for posting status
+
+// route for getting status
+
   // app.get("/api/questions", function (req, res) {
   //   res.json(question);
   // })
