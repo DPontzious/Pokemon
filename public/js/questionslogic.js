@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+    $('#myModal').modal('show')
+    
     $("#done").on("click", function (event) {
         event.preventDefault();
         var userInput = {
