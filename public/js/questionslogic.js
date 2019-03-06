@@ -16,7 +16,6 @@ $(document).ready(function () {
                 $("#q10").val().trim()
             ]
         };
-
         // axios.post('/api/questions', userInput)
         //     .then(function (response) {
         //         console.log(response);
@@ -33,5 +32,4 @@ $(document).ready(function () {
             $(".img1").css('width', '200px');
         })
         $("#results").modal;
-    });
 });
