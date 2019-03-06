@@ -16,22 +16,20 @@ $(document).ready(function () {
                 $("#q10").val().trim()
             ]
         };
+        // axios.post('/api/questions', userInput)
+        //     .then(function (response) {
+        //         console.log(response);
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
 
-        axios.post('/api/questions', userInput)
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        $.post("/api/friends", match, function (data) {
 
-        // $.post("/api/friends", match, function (data) {
-
-        //     $("#match").text(data.name);
-        //     $("#img").attr("src", data.photo);
-        //     $(".img1").css('height', '200px');
-        //     $(".img1").css('width', '200px');
-        // })
-        // $("#results").modal;
-    });
+            $("#match").text(data.name);
+            $("#img").attr("src", data.photo);
+            $(".img1").css('height', '200px');
+            $(".img1").css('width', '200px');
+        })
+        $("#results").modal;
 });
