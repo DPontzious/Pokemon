@@ -1,11 +1,24 @@
-// constructor function which can be used to create "digitalpal" objects
-var DigitalPal = function () {
-  this.hungry = false;
-  this.sleepy = false;
-  this.thirsty = false;
-  this.bored = true;
-  this.age = 0;
 
+// 
+
+// Each logic piece:
+// has jquery link to button, calls to db, runs logic, pushes to db, appends to page
+
+
+
+// functions to read each stat
+
+// functions to update each stat
+
+
+
+
+
+var DigitalPal = function() {
+    this.hungry = false;
+    this.sleepy = false;
+    this.bored = true;
+    this.age = 0;
   // method which feeds the digitalpal when they are hungry and sets them to sleepy
   this.feed = function () {
     if (this.hungry === true) {
