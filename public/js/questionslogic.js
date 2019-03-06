@@ -25,11 +25,16 @@ $(document).ready(function () {
         //     });
 
         $.post("/api/friends", match, function (data) {
+            $.post("/api/friends", userData, function (data) {
 
-            $("#match").text(data.name);
-            $("#img").attr("src", data.photo);
-            $(".img1").css('height', '200px');
-            $(".img1").css('width', '200px');
+                $("#match-name").text(data.name);
+                $("#match-img").attr("src", data.photo);
+
+                $("#results-modal").modal("toggle");
+                console.log("posted");
+                console.log(userData);
+
+            });
         })
         $("#results").modal;
     });
