@@ -1,11 +1,9 @@
-$(document).ready(function () {
-
-    $('#myModal').modal('show')
-    
+module.export = function modal() {
+    $('#questions-modal').modal('show')
     $("#done").on("click", function (event) {
         event.preventDefault();
         var userInput = {
-            name: $("#name").val().trim(),
+            // name: $("#name").val().trim(),
             scores: [
                 $("#q1").val().trim(),
                 $("#q2").val().trim(),
@@ -19,27 +17,44 @@ $(document).ready(function () {
                 $("#q10").val().trim()
             ]
         };
-        console.log(userInput)
-        // axios.post('/api/questions', userInput)
-        //     .then(function (response) {
-        //         console.log(response);
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     });
+        // TAkes just the scores off the userInput object
+        score = userInput.scores
+        // turns the strings into numbers.
+        var mapScore = score.map(Number)
+        const add = (a, b) => a + b
+        var sumOfScores = mapScore.reduce(add)
+        console.log(sumOfScores)
+    })
 
-        // $.post("/api/friends", match, function (data) {
-        //     $.post("/api/friends", userData, function (data) {
+    // app.get("/api/pokemonlist", function (req, res) {
+    //     var pokemonScore = 
 
-        //         $("#match-name").text(data.name);
-        //         $("#match-img").attr("src", data.photo);
 
-        //         $("#results-modal").modal("toggle");
-        //         console.log("posted");
-        //         console.log(userData);
+    //     if (pokemonScore === sumOfScores) {
 
-        //     });
-        // })
-        // $("#results").modal;
-    });
-});
+    //     }
+
+    // $.ajax('/api/', userInput)
+    //     .then(function (response) {
+    //         console.log("scores", response);
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error);
+    //     });
+
+    // $.post("/api/friends", match, function (data) {
+    //     $.post("/api/friends", userData, function (data) {
+
+    //         $("#match-name").text(data.name);
+    //         $("#match-img").attr("src", data.photo);
+
+    //         $("#results-modal").modal("toggle");
+    //         console.log("posted");
+    //         console.log(userData);
+
+    //     });
+    // })
+    // $("#results").modal;
+    // });
+    // });
+}

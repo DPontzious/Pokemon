@@ -1,13 +1,13 @@
 // Each logic piece:
 // has jquery link to button, calls to db, runs logic, pushes to db, appends to page
-$(document).on("click", "#water", function(){
+$(document).on("click", "#water", function () {
     $("#status").prepend("<p>Thanks, I was really thirsty!</p>")
     // $.get("/api/posts" + categoryString, function(data) {
     //     var thirsty = data.thirsty
-        
+
     //     if (thirsty === true) {
-            
-            
+
+
     //         data.hungry = false;
     //         data.sleepy = true;
     //       }
@@ -17,46 +17,46 @@ $(document).on("click", "#water", function(){
     // }).then($.post())
 });
 
-$(document).on("click", "#feed", function(){
+$(document).on("click", "#feed", function () {
     if (this.hungry === true) {
         $("#status").prepend("<p>That was tastey!</p>")
-        
+
         this.hungry = false;
         this.sleepy = true;
-      }
-      else {
-        $("#status").prepend("<p>No thanks- I'm not hungry now.</p>")  
-        
     }
-    
+    else {
+        $("#status").prepend("<p>No thanks- I'm not hungry now.</p>")
+
+    }
+
 });
 
-$(document).on("click", "#sleep", function(){
+$(document).on("click", "#sleep", function () {
     if (this.sleepy === true) {
-        $("#status").prepend("<p>ZZzzZZZzzZZz~~</p>")  
-        
+        $("#status").prepend("<p>ZZzzZZZzzZZz~~</p>")
+
         this.sleepy = false;
         this.bored = true;
         this.increaseAge();
     }
     else {
-        $("#status").prepend("<p>No way! I'm not tired!</p>")  
-        
+        $("#status").prepend("<p>No way! I'm not tired!</p>")
+
     }
-    
+
 });
 
-$(document).on("click", "#play",  function(){
+$(document).on("click", "#play", function () {
     if (this.bored === true) {
-        $("#status").prepend("<p>I'm excited! Let's play!</p>")  
-        
+        $("#status").prepend("<p>I'm excited! Let's play!</p>")
+
         this.bored = false;
         this.hungry = true;
     }
     else {
-        $("#status").prepend("<p>Not right now. Maybe later?</p>")  
-        
-      }
+        $("#status").prepend("<p>Not right now. Maybe later?</p>")
+
+    }
 
 });
 
