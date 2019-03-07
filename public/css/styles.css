@@ -10,3 +10,13 @@ body{
 .jumbotron{
   margin-top: 225px;
 }
+
+.scroll{
+  height: 150px;
+  overflow-y: scroll;
+}
+
+#status{
+background-color: white;
+
+}
