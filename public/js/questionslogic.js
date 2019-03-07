@@ -32,19 +32,14 @@ $("#done").on("click", function (event) {
     
 });
 
-
 // module.export = questionsModel;
-    app.post("/api/userData", function (req, body) {
+$.post("/api/user_data", function (req, res) {
+    // db.User.create({
+    // scores: req.body
+    console.log(req.body)
+});
+
+    // $.post("/api/friends", match, function (data) {
+    //     $.post("/api/friends", userData, function (data) 
 
 
-   
-    });
-   
-
-    // $.ajax('/api/', userInput)
-    // .then(function (response) {
-    //     console.log("scores", response);
-    // })
-    // .catch(function (error) {
-    //     console.log(error);
-    
