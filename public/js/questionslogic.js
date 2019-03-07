@@ -26,6 +26,13 @@ module.export = function modal() {
         console.log(sumOfScores)
     })
 
+    // for loop all the items 
+    //if statement
+    //find all where is_default === sumofScores 
+    //math.random to pick one of the pokemon
+    //and return object to the user
+    
+
     // app.get("/api/pokemonlist", function (req, res) {
     //     var pokemonScore = 
 

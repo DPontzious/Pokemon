@@ -82,6 +82,7 @@ module.exports = function (app) {
       var pokeallobject = { pokemonfinder: dbPokemon };
       return res.render("pokemonfinder", pokeallobject);
   });
+  };
 
     })
   
