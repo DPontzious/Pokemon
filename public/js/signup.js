@@ -19,11 +19,11 @@ $(document).ready(function () {
       type: "POST",
       data: userData
     }).then(function (resp) {
-      $('#signupModal').modal('hide')
-      $('#questions-modal').modal('show')
+      // $('#signupModal').modal('hide')
+      // $('#questions-modal').modal('show')
       
       
-      // location.replace("/status");
+      location.replace("/status");
       // // console.log("here", resp)
       
       // // // if (resp.status === true) {
