@@ -25,9 +25,9 @@ module.exports = function (app) {
       // console.log(dbRes)
       console.log("testing", dbRes._options.isNewRecord)
       if (dbRes._options.isNewRecord === true) {
-
+        res.status(true).send
         // success code to front
-
+        // res.status(200).send("success!");
       } else {
         // send unsucc message front
       }
@@ -88,12 +88,12 @@ module.exports = function (app) {
 
   app.get("/api/pokemonfinder", function (req, res) {
     db.PokemonFinder.findAll({})
- 
+
       .then(function (dbPokemonFinder) {
-       // var pokemonobject = { pokemonfinder: dbPokemon }
+        // var pokemonobject = { pokemonfinder: dbPokemon }
         res.json(dbPokemonFinder);
       });
- 
+
   })
   // app.get("/pokemonall", function (req, res){
   //   db.PokemonFinder.findAll()
@@ -103,7 +103,7 @@ module.exports = function (app) {
   // });
 
   //   })
-  
+
   // route for getting status
 
 
