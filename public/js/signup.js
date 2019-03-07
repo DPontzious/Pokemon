@@ -20,15 +20,10 @@ $(document).ready(function() {
         data: userData
       }).then(
         function(result) {
-          console.log("created new user");
-          console.log(result)
+          location.replace("/status");
         }
       );
 
     });
     
-    function handleLoginErr(err) {
-      $("#alert .msg").text(err.responseJSON);
-      $("#alert").fadeIn(500);
-    }
   });
