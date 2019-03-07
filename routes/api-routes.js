@@ -11,34 +11,42 @@ module.exports = function (app) {
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
     res.send("/status");
+    // res.redirect(307, "/api/login");
+    //  location.replace("/status");
+    // res.status(200).send("success!");
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
-  app.post("/api/signup", function (req, res) {
+  app.post("/api/signup", passport.authenticate("local-signup"), function (req, res) {
+    if(req.user){
+      res.status(200).send("All good!");
+    }else {
+      res.status(500).send("Not good!")
+    }
     // console.log(req.body);
-    db.User.create({
-      email: req.body.email,
-      password: req.body.password
-    }).then(function (dbRes) {
-      // console.log(dbRes)
-      console.log("testing", dbRes._options.isNewRecord)
-      if (dbRes._options.isNewRecord === true) {
-        res.status(true).send
-        // success code to front
-        // res.status(200).send("success!");
-      } else {
-        // send unsucc message front
-      }
-      res.redirect(307, "/api/login");
+    // db.User.create({
+    //   email: req.body.email,
+    //   password: req.body.password
+    // }).then(function (dbRes) {
+    //   // console.log(dbRes)
+    //   console.log("testing", dbRes._options.isNewRecord)
+    //   if (dbRes._options.isNewRecord === true) {
+    //     // res.status(true).send
+    //     // success code to front
+    //     res.status(200).send("success!");
+    //   } else {
+    //     // send unsucc message front
+    //   }
+    //   res.redirect(307, "/api/login");
 
 
-    }).catch(function (err) {
-      console.log(err);
-      res.json(err);
-      // res.status(422).json(err.errors[0].message);
-    });
+    // }).catch(function (err) {
+    //   console.log(err);
+    //   res.json(err);
+    //   // res.status(422).json(err.errors[0].message);
+    // });
   });
 
   // Route for logging user out

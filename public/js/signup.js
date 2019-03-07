@@ -19,13 +19,17 @@ $(document).ready(function () {
       type: "POST",
       data: userData
     }).then(function (resp) {
-      location.replace("/status");
-      console.log("here", resp)
-      if (resp.status === true) {
-        $('#questions-modal').modal('show')
-      } else {
-        $('#questions-modal').modal('hide')
-      }
+      $('#signupModal').modal('hide')
+      $('#questions-modal').modal('show')
+      
+      
+      // location.replace("/status");
+      // // console.log("here", resp)
+      
+      // // // if (resp.status === true) {
+      // // // } else {
+      // // //   $('#questions-modal').modal('hide')
+      // // // }
     }
 
     );
