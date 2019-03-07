@@ -72,7 +72,17 @@ module.exports = function (app) {
         // res.status(422).json(err.errors[0].message);
       });
     }
-  })
+  });
+
+  app.get("/pokemonall", function (req, res){
+    db.PokemonFinder.findAll()
+    .then(function (dbPokemon) {
+      var pokeallobject = { pokemonfinder: dbPokemon };
+      return res.render("pokemonfinder", pokeallobject);
+  });
+
+    })
+  
   // route for getting status
 
 
