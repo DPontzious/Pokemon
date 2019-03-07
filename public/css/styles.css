@@ -3,7 +3,7 @@
 }
 
 body{
-  background-image: url("/images/pokemon.jpg");
+  background-image: url("/public/images/pokemon.jpg");
   background-size: contain;
 }
 
