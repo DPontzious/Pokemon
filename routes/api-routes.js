@@ -1,6 +1,6 @@
 var db = require("../models");
 var passport = require("../config/passport");
-var modal = require("../public/js/questionsLogic")
+// var  = require("../public/js/questionsLogic")
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -21,8 +21,18 @@ module.exports = function (app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password
-    }).then(function () {
+    }).then(function (dbRes) {
+      // console.log(dbRes)
+      console.log("testing", dbRes._options.isNewRecord)
+      if (dbRes._options.isNewRecord === true) {
+
+        // success code to front
+
+      } else {
+        // send unsucc message front
+      }
       res.redirect(307, "/api/login");
+
 
     }).catch(function (err) {
       console.log(err);
@@ -76,15 +86,14 @@ module.exports = function (app) {
     }
   });
 
-  app.get("/pokemonall", function (req, res){
+  app.get("/pokemonall", function (req, res) {
     db.PokemonFinder.findAll()
-    .then(function (dbPokemon) {
-      var pokeallobject = { pokemonfinder: dbPokemon };
-      return res.render("pokemonfinder", pokeallobject);
-  });
+      .then(function (dbPokemon) {
+        res.json(dbPokemon);
+      });
 
-    })
-  
+  })
+
   // route for getting status
 
 
