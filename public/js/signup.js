@@ -18,14 +18,15 @@ $(document).ready(function () {
     $.ajax("/api/signup", {
       type: "POST",
       data: userData
-    }).then(function (resp) {
+    }).then(function (resp, test) {
       location.replace("/status");
       console.log("here", resp)
-      if (resp.status === true) {
-        $('#questions-modal').modal('show')
-      } else {
-        $('#questions-modal').modal('hide')
-      }
+      console.log("test", test)
+      // if (resp.status === true) {
+      //   $('#questions-modal').modal('show')
+      // } else {
+      //   $('#questions-modal').modal('hide')
+      // }
     }
 
     );

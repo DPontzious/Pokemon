@@ -10,7 +10,9 @@ module.exports = function (app) {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
-    res.send("/status");
+    // res.send("/status");
+    res.status(200).send("/status")
+    // res.send(dbRes._options.isNewRecord)
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -23,14 +25,14 @@ module.exports = function (app) {
       password: req.body.password
     }).then(function (dbRes) {
       // console.log(dbRes)
-      console.log("testing", dbRes._options.isNewRecord)
-      if (dbRes._options.isNewRecord === true) {
-        res.status(true).send
-        // success code to front
-        // res.status(200).send("success!");
-      } else {
-        // send unsucc message front
-      }
+      // console.log("testing", dbRes._options.isNewRecord)
+      // if (dbRes._options.isNewRecord === true) {
+      // res.status(true).send
+      // success code to front
+      // res.status(200).send("success!");
+      // } else {
+      // send unsucc message front
+      // }
       res.redirect(307, "/api/login");
 
 
