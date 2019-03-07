@@ -1,6 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
     var PokemonFinder = sequelize.define("PokemonFinder", {
-
         position: {
             type: DataTypes.INTEGER,
             allowNull: false
@@ -18,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         weight: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         base_experience: {
@@ -36,9 +35,12 @@ module.exports = function (sequelize, DataTypes) {
         },
         image: {
             type: DataTypes.STRING,
-            allowNull: false
+          
         },
-    });
 
+    // freezeTableName: true,
+
+    // tableName: 'pokemonfinder'
+    });
     return PokemonFinder;
 };

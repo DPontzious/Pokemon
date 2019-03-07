@@ -86,14 +86,24 @@ module.exports = function (app) {
     }
   });
 
-  app.get("/pokemonall", function (req, res) {
-    db.PokemonFinder.findAll()
-      .then(function (dbPokemon) {
-        res.json(dbPokemon);
+  app.get("/api/pokemonfinder", function (req, res) {
+    db.PokemonFinder.findAll({})
+ 
+      .then(function (dbPokemonFinder) {
+       // var pokemonobject = { pokemonfinder: dbPokemon }
+        res.json(dbPokemonFinder);
       });
-
+ 
   })
+  // app.get("/pokemonall", function (req, res){
+  //   db.PokemonFinder.findAll()
+  //   .then(function (dbPokemon) {
+  //     var pokeallobject = { pokemonfinder: dbPokemon };
+  //     return res.render("pokemonfinder", pokeallobject);
+  // });
 
+  //   })
+  
   // route for getting status
 
 
@@ -139,5 +149,4 @@ module.exports = function (app) {
   //   app.get("/api/friends", function (req, res) {
   //     res.json(profiles);
   //   });
-
 };
