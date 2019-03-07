@@ -26,35 +26,13 @@ $("#done").on("click", function (event) {
 });
 
 // module.export = questionsModel;
-    // app.get("/api/pokemonlist", function (req, res) {
-    //     var pokemonScore = 
-
-
-    //     if (pokemonScore === sumOfScores) {
-
-    //     }
-
-    // $.ajax('/api/', userInput)
-    //     .then(function (response) {
-    //         console.log("scores", response);
-    //     })
-    //     .catch(function (error) {
-    //         console.log(error);
-    //     });
+$.post("/api/user_data", function (req, res) {
+    // db.User.create({
+    // scores: req.body
+    console.log(req.body)
+});
 
     // $.post("/api/friends", match, function (data) {
-    //     $.post("/api/friends", userData, function (data) {
+    //     $.post("/api/friends", userData, function (data) 
 
-    //         $("#match-name").text(data.name);
-    //         $("#match-img").attr("src", data.photo);
-
-    //         $("#results-modal").modal("toggle");
-    //         console.log("posted");
-    //         console.log(userData);
-
-    //     });
-    // })
-    // $("#results").modal;
-    // });
-    // });
 
