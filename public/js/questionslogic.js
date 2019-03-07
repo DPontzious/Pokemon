@@ -1,38 +1,31 @@
-module.export = function modal() {
-    $('#questions-modal').modal('show')
-    $("#done").on("click", function (event) {
-        event.preventDefault();
-        var userInput = {
-            // name: $("#name").val().trim(),
-            scores: [
-                $("#q1").val().trim(),
-                $("#q2").val().trim(),
-                $("#q3").val().trim(),
-                $("#q4").val().trim(),
-                $("#q5").val().trim(),
-                $("#q6").val().trim(),
-                $("#q7").val().trim(),
-                $("#q8").val().trim(),
-                $("#q9").val().trim(),
-                $("#q10").val().trim()
-            ]
-        };
-        // TAkes just the scores off the userInput object
-        score = userInput.scores
-        // turns the strings into numbers.
-        var mapScore = score.map(Number)
-        const add = (a, b) => a + b
-        var sumOfScores = mapScore.reduce(add)
-        console.log(sumOfScores)
-    })
+$('#questions-modal').modal('show')
+$("#done").on("click", function (event) {
+    event.preventDefault();
+    var userInput = {
+        // name: $("#name").val().trim(),
+        scores: [
+            $("#q1").val().trim(),
+            $("#q2").val().trim(),
+            $("#q3").val().trim(),
+            $("#q4").val().trim(),
+            $("#q5").val().trim(),
+            $("#q6").val().trim(),
+            $("#q7").val().trim(),
+            $("#q8").val().trim(),
+            $("#q9").val().trim(),
+            $("#q10").val().trim()
+        ]
+    };
+    // TAkes just the scores off the userInput object
+    score = userInput.scores
+    // turns the strings into numbers.
+    var mapScore = score.map(Number)
+    const add = (a, b) => a + b
+    var sumOfScores = mapScore.reduce(add)
+    console.log(sumOfScores)
+});
 
-    // for loop all the items 
-    //if statement
-    //find all where is_default === sumofScores 
-    //math.random to pick one of the pokemon
-    //and return object to the user
-    
-
+// module.export = questionsModel;
     // app.get("/api/pokemonlist", function (req, res) {
     //     var pokemonScore = 
 
@@ -64,4 +57,4 @@ module.export = function modal() {
     // $("#results").modal;
     // });
     // });
-}
+
