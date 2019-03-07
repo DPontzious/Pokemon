@@ -1,3 +1,5 @@
+
+
 $('#questions-modal').modal('show')
 $("#done").on("click", function (event) {
     event.preventDefault();
@@ -16,45 +18,33 @@ $("#done").on("click", function (event) {
             $("#q10").val().trim()
         ]
     };
-    // TAkes just the scores off the userInput object
-    score = userInput.scores
+    
+        score = userInput.scores
     // turns the strings into numbers.
     var mapScore = score.map(Number)
     const add = (a, b) => a + b
     var sumOfScores = mapScore.reduce(add)
     console.log(sumOfScores)
+
+   
+   
+    // TAkes just the scores off the userInput object
+    
 });
 
+
 // module.export = questionsModel;
-    // app.get("/api/pokemonlist", function (req, res) {
-    //     var pokemonScore = 
+    app.post("/api/userData", function (req, body) {
+        
 
-
-    //     if (pokemonScore === sumOfScores) {
-
-    //     }
+   
+    });
+   
 
     // $.ajax('/api/', userInput)
-    //     .then(function (response) {
-    //         console.log("scores", response);
-    //     })
-    //     .catch(function (error) {
-    //         console.log(error);
-    //     });
-
-    // $.post("/api/friends", match, function (data) {
-    //     $.post("/api/friends", userData, function (data) {
-
-    //         $("#match-name").text(data.name);
-    //         $("#match-img").attr("src", data.photo);
-
-    //         $("#results-modal").modal("toggle");
-    //         console.log("posted");
-    //         console.log(userData);
-
-    //     });
+    // .then(function (response) {
+    //     console.log("scores", response);
     // })
-    // $("#results").modal;
-    // });
-    // });
-
+    // .catch(function (error) {
+    //     console.log(error);
+    
