@@ -14,11 +14,11 @@
 
 
 
-var DigitalPal = function() {
-    this.hungry = false;
-    this.sleepy = false;
-    this.bored = true;
-    this.age = 0;
+var DigitalPal = function () {
+  this.hungry = false;
+  this.sleepy = false;
+  this.bored = true;
+  this.age = 0;
   // method which feeds the digitalpal when they are hungry and sets them to sleepy
   this.feed = function () {
     if (this.hungry === true) {
