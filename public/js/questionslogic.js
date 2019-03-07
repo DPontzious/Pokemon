@@ -1,4 +1,4 @@
-$(document).ready(function () {
+module.export = function modal() {
     $('#questions-modal').modal('show')
     $("#done").on("click", function (event) {
         event.preventDefault();
@@ -26,9 +26,14 @@ $(document).ready(function () {
         console.log(sumOfScores)
     })
 
-    app.get("/api/pokemonlist", function (req, res) {
-        var pokemonScore = 
-})
+    // app.get("/api/pokemonlist", function (req, res) {
+    //     var pokemonScore = 
+
+
+    //     if (pokemonScore === sumOfScores) {
+
+    //     }
+
     // $.ajax('/api/', userInput)
     //     .then(function (response) {
     //         console.log("scores", response);
@@ -51,4 +56,5 @@ $(document).ready(function () {
     // })
     // $("#results").modal;
     // });
-});
+    // });
+}

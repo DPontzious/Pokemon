@@ -1,5 +1,6 @@
 var db = require("../models");
 var passport = require("../config/passport");
+var modal = require("../public/js/questionsLogic")
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -22,6 +23,7 @@ module.exports = function (app) {
       password: req.body.password
     }).then(function () {
       res.redirect(307, "/api/login");
+
     }).catch(function (err) {
       console.log(err);
       res.json(err);
@@ -73,8 +75,5 @@ module.exports = function (app) {
         });
     }
   });
-  // app.get("/questions", (req, res) => {
-  //   // res.sendFile(path.join(__dirname, "../views/questions"));
-  //   res.json();
-  // });
+
 };
