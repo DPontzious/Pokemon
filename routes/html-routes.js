@@ -1,4 +1,5 @@
 const reqUser = require("./middleware/reqUser");
+const db = require("../models");
 
 module.exports = function (app) {
     app.get("/", (req, res) => {
@@ -7,12 +8,24 @@ module.exports = function (app) {
 
     // Character status and interaction page route
     app.get("/status", reqUser, (req, res) => {
-        res.render("status");
+        db.pokestatus.findOne({
+            where: {
+                UserId: req.user.id
+            }
+        }).then(dbStatus => {
+            if (dbStatus) {
+                res.render("status", {
+                    hasPokemon: true,
+                    pokemon: dbStatus
+                });
+            } else {
+                res.render("status", {
+                    hasPokemon: false
+                });
+            }
+        })
     });
-    // app.get("/questions", (req, res) => {
 
-    //     res.render("questmodal");
-    // });
 
 }
 

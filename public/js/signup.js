@@ -18,15 +18,18 @@ $(document).ready(function () {
     $.ajax("/api/signup", {
       type: "POST",
       data: userData
-    }).then(function (resp, test) {
+    }).then(function (resp) {
+      // $('#signupModal').modal('hide')
+      // $('#questions-modal').modal('show')
+      
+      
       location.replace("/status");
-      console.log("here", resp)
-      console.log("test", test)
-      // if (resp.status === true) {
-      //   $('#questions-modal').modal('show')
-      // } else {
-      //   $('#questions-modal').modal('hide')
-      // }
+      // // console.log("here", resp)
+      
+      // // // if (resp.status === true) {
+      // // // } else {
+      // // //   $('#questions-modal').modal('hide')
+      // // // }
     }
 
     );
