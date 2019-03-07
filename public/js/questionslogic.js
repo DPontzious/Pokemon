@@ -1,4 +1,6 @@
 
+
+$('#questions-modal').modal('show')
 $("#done").on("click", function (event) {
     event.preventDefault();
     var userInput = {
@@ -16,13 +18,18 @@ $("#done").on("click", function (event) {
             $("#q10").val().trim()
         ]
     };
-    // TAkes just the scores off the userInput object
-    score = userInput.scores
+    
+        score = userInput.scores
     // turns the strings into numbers.
     var mapScore = score.map(Number)
     const add = (a, b) => a + b
     var sumOfScores = mapScore.reduce(add)
     console.log(sumOfScores)
+
+   
+   
+    // TAkes just the scores off the userInput object
+    
 });
 
 // module.export = questionsModel;
