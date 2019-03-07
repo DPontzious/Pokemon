@@ -1,11 +1,12 @@
 var db = require("../models");
 var passport = require("../config/passport");
+const reqUser = require("./middleware/reqUser");
 // var  = require("../public/js/questionsLogic")
-module.exports = function (app) {
+module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), function (req, res) {
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
     // console.log(req.user);
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
@@ -18,7 +19,7 @@ module.exports = function (app) {
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
-  app.post("/api/signup", function (req, res) {
+  app.post("/api/signup", function(req, res) {
     // console.log(req.body);
     db.User.create({
       email: req.body.email,
@@ -44,13 +45,13 @@ module.exports = function (app) {
   });
 
   // Route for logging user out
-  app.get("/logout", function (req, res) {
+  app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
   });
 
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function (req, res) {
+  app.get("/api/user_data", function(req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -64,7 +65,7 @@ module.exports = function (app) {
     }
   });
   // route for posting status
-  app.get("/api/characterstat", function (req, res) {
+  app.get("/api/characterstat", function(req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -76,72 +77,133 @@ module.exports = function (app) {
         email: req.body.email,
         password: req.body.password
       })
-        .then(function () {
+        .then(function() {
           res.redirect(307, "/api/login");
         })
-        .catch(function (err) {
+        .catch(function(err) {
           console.log(err);
           res.json(err);
           // res.status(422).json(err.errors[0].message);
-
         });
     }
   });
 
-  app.get("/api/pokemonfinder", function (req, res) {
-    db.PokemonFinder.findAll({})
+  app.get("/api/pokemonfinder", function(req, res) {
+    db.PokemonFinder.findAll({}).then(function(dbPokemonFinder) {
+      // var pokemonobject = { pokemonfinder: dbPokemon }
+      res.json(dbPokemonFinder);
+    });
+  });
 
-      .then(function (dbPokemonFinder) {
-        // var pokemonobject = { pokemonfinder: dbPokemon }
-        res.json(dbPokemonFinder);
-      });
+  app.post("/api/pokemonfinder/match", reqUser, function(req, res) {
+    //find all the pokemon in the database
+    db.PokemonFinder.findAll({}).then(function(dbPokemonFinder) {
+      var matches = [];
+      var pokemonChoices = dbPokemonFinder;
 
-  })
+      //  console.log(pokemonChoices);
+      // find a match
+      function matchAll(matchUp) {
+        console.log(matchUp);
+        //   if sumOfScores ===
+        //sumOfScores dalt of object
+        //we get bcak with mutiples
+        //then we need to run a random to pick one
+        //associate where the userScore is equal to the pokemon score
+        //find its position on the object
+      }
 
-  
-  // route for getting status
+      // Here we loop through all the friend possibilities in the database.
 
+      // var currentUserScore = req.user.sumofscores
+      console.log(req.user);
+      for (var i = 0; i < pokemonChoices.length; i++) {
+        var currentPokemon = PokemonFinder[i].is_default;
+        if (sumOfScores === currentPokemon) {
+          console.log();
+        } else {
+          console.log("nothing");
+        }
+      }
+      //   //totalDifference = 0;
 
-  // app.get("/api/questions", function (req, res) {
-  //   res.json(question);
-  // })
-  // app.post("/api/question", function (req, res) {
+      //   // We then loop through all the scores of each friend
 
-  //   questionsinfo.push(req.body);
-  // console.log(profiles);
+      //   // If the sum of differences is less then the differences of the current "best match"
+      //   if (currentPokemon.score === currentUserScore) {
+      //     // Reset the bestMatch to be the new friend.
+      //     matches.push(currentPokemon);
+      //   }
+      // }
 
-  // var totalArry = []
-  // for (let i = 0; i < profiles.length - 1; i++) {
-  //   const scoreNum = profiles[i].scores;
-  //   const newScore = req.body.scores;
+      res.send("Made it!");
+    });
+  });
 
-  // console.log(scoreNum);
-  //   console.log(newScore);
-  //   var total = 0;
-  //   for (let i = 0; i < scoreNum.length; i++) {
-  //     var diff = scoreNum[i] - newScore[i];
-  //     var value = Math.abs(diff);
+  app.post("/api/pokemon/status", function(req, res) {
+    db.pokestatus.create(req.body).then(data => res.json(data));
+  });
 
-  //     total += value;
-
-  //   }
-  //   totalArry.push(total);
-  //   console.log(total);
-
-  // }
-  // console.log(totalArry);
-
-  // var iMV = totalArry.indexOf(Math.min.apply(Math, totalArry))
-  // var match = profiles[iMV];
-  // res.json(match);
-
-  // console.log(match);
-  // console.log(iMV)
-
-  // });
-
-
-  //   app.get("/api/friends", function (req, res) {
-  //     res.json(profiles);
-  //   });
+  app.get("/api/pokemon/status", function(req, res) {
+    db.pokestatus
+      .findOne({
+        where: {
+          UserId: 1
+        }
+      })
+      .then(data => res.json(data));
+  });
 };
+
+// app.get("/pokemonall", function (req, res){
+//   db.PokemonFinder.findAll()
+//   .then(function (dbPokemon) {
+//     var pokeallobject = { pokemonfinder: dbPokemon };
+//     return res.render("pokemonfinder", pokeallobject);
+// });
+
+//   })
+
+// route for getting status
+
+// app.get("/api/questions", function (req, res) {
+//   res.json(question);
+// })
+// app.post("/api/question", function (req, res) {
+
+//   questionsinfo.push(req.body);
+// console.log(profiles);
+
+// var totalArry = []
+// for (let i = 0; i < profiles.length - 1; i++) {
+//   const scoreNum = profiles[i].scores;
+//   const newScore = req.body.scores;
+
+// console.log(scoreNum);
+//   console.log(newScore);
+//   var total = 0;
+//   for (let i = 0; i < scoreNum.length; i++) {
+//     var diff = scoreNum[i] - newScore[i];
+//     var value = Math.abs(diff);
+
+//     total += value;
+
+//   }
+//   totalArry.push(total);
+//   console.log(total);
+
+// }
+// console.log(totalArry);
+
+// var iMV = totalArry.indexOf(Math.min.apply(Math, totalArry))
+// var match = profiles[iMV];
+// res.json(match);
+
+// console.log(match);
+// console.log(iMV)
+
+// });
+
+//   app.get("/api/friends", function (req, res) {
+//     res.json(profiles);
+//   });
