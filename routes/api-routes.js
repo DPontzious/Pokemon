@@ -97,15 +97,8 @@ module.exports = function (app) {
       });
 
   })
-  // app.get("/pokemonall", function (req, res){
-  //   db.PokemonFinder.findAll()
-  //   .then(function (dbPokemon) {
-  //     var pokeallobject = { pokemonfinder: dbPokemon };
-  //     return res.render("pokemonfinder", pokeallobject);
-  // });
 
-  //   })
-
+  
   // route for getting status
 
 
