@@ -1,4 +1,4 @@
-$('#questions-modal').modal('show')
+
 $("#done").on("click", function (event) {
     event.preventDefault();
     var userInput = {
