@@ -22,22 +22,24 @@ module.exports = function(app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password
-    })
-      .then(function(dbRes) {
-        // console.log(dbRes)
-        console.log("testing", dbRes._options.isNewRecord);
-        if (dbRes._options.isNewRecord === true) {
-          // success code to front
-        } else {
-          // send unsucc message front
-        }
-        res.redirect(307, "/api/login");
-      })
-      .catch(function(err) {
-        console.log(err);
-        res.json(err);
-        // res.status(422).json(err.errors[0].message);
-      });
+    }).then(function (dbRes) {
+      // console.log(dbRes)
+      console.log("testing", dbRes._options.isNewRecord)
+      if (dbRes._options.isNewRecord === true) {
+        res.status(true).send
+        // success code to front
+        // res.status(200).send("success!");
+      } else {
+        // send unsucc message front
+      }
+      res.redirect(307, "/api/login");
+
+
+    }).catch(function (err) {
+      console.log(err);
+      res.json(err);
+      // res.status(422).json(err.errors[0].message);
+    });
   });
 
   // Route for logging user out

@@ -18,13 +18,16 @@ $(document).ready(function () {
     $.ajax("/api/signup", {
       type: "POST",
       data: userData
-    }).then(
-      function (result) {
-        // console.log("results", result)
-        //code here
-        console.log(result)
-        location.replace("/status");
+    }).then(function (resp) {
+      location.replace("/status");
+      console.log("here", resp)
+      if (resp.status === true) {
+        $('#questions-modal').modal('show')
+      } else {
+        $('#questions-modal').modal('hide')
       }
+    }
+
     );
 
   });
