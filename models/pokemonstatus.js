@@ -1,9 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     var pokestatus = sequelize.define("pokestatus", {
-        UserID: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
+  
         pokeName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -32,5 +29,9 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: true
         },
     });
+    pokestatus.associate = function (models){
+// console.log("It worked", models)
+pokestatus.belongsTo(models.User)
+    }
     return pokestatus;
 };
