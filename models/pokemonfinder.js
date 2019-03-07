@@ -38,9 +38,6 @@ module.exports = function (sequelize, DataTypes) {
           
         },
 
-    // freezeTableName: true,
-
-    // tableName: 'pokemonfinder'
     });
     return PokemonFinder;
 };
