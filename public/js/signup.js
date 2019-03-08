@@ -23,9 +23,9 @@ $(document).ready(function () {
       // $('#questions-modal').modal('show')
       
       
-      location.replace("/status");
-      // // console.log("here", resp)
+      console.log("here", resp)
       
+      window.location.replace("/status");
       // // // if (resp.status === true) {
       // // // } else {
       // // //   $('#questions-modal').modal('hide')
