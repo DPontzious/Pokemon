@@ -1,9 +1,9 @@
 const db = require("../models");
 const fs = require("fs");
 
-// db.sequelize.query("SELECT * FROM pokemonfinder").then(data => fs.writeFile("data.json", JSON.stringify(data), function(err){
-//     console.log(err);
-// }));
+db.sequelize.query("SELECT * FROM pokemonfinder").then(data => fs.writeFile("data.json", JSON.stringify(data), function(err){
+    console.log(err);
+}));
 
 fs.readFile("data.json", "utf-8", function (err, data) {
     const pokemon = JSON.parse(data);
