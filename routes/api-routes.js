@@ -47,7 +47,7 @@ module.exports = function (app) {
     //   res.json(err);
     //   // res.status(422).json(err.errors[0].message);
     // });
-ß  });
+ });
 
   // Route for logging user out
   app.get("/logout", function (req, res) {
@@ -66,6 +66,7 @@ module.exports = function (app) {
       res.json({
         email: req.user.email,
         id: req.user.id
+
       });
     }
   });
@@ -80,7 +81,8 @@ module.exports = function (app) {
       // console.log(req.body);
       db.User.create({
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+  
       })
         .then(function () {
           res.redirect(307, "/api/login");

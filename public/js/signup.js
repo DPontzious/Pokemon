@@ -21,11 +21,11 @@ $(document).ready(function () {
     }).then(function (resp) {
       // $('#signupModal').modal('hide')
       // $('#questions-modal').modal('show')
-      
-      
+
+
       location.replace("/status");
       // // console.log("here", resp)
-      
+
       // // // if (resp.status === true) {
       // // // } else {
       // // //   $('#questions-modal').modal('hide')
