@@ -1,10 +1,8 @@
-
-
 $('#questions-modal').modal('show')
 $("#done").on("click", function (event) {
     event.preventDefault();
     var userInput = {
-        // name: $("#name").val().trim(),
+
         scores: [
             $("#q1").val().trim(),
             $("#q2").val().trim(),
@@ -18,28 +16,31 @@ $("#done").on("click", function (event) {
             $("#q10").val().trim()
         ]
     };
-    
-        score = userInput.scores
-    // turns the strings into numbers.
+
+    score = userInput.scores
+
     var mapScore = score.map(Number)
     const add = (a, b) => a + b
     var sumOfScores = mapScore.reduce(add)
     console.log(sumOfScores)
 
-   
-   
-    // TAkes just the scores off the userInput object
-    
+
+
+
+    $.get("/api/pokemonfinder", function (data) {
+        var array = [];
+        for (let i = 0; i < data.length; i++) {
+            const scoreNum = data[i].isdault;
+
+            // console.log(scoreNum)
+            if (sumOfScores === scoreNum) {
+                var match = data[i].name
+                array.push(match)
+
+            }
+        }
+        var random = array[(Math.floor(Math.random() * 4) + 1)];
+        console.log(random)
+    }
+    )
 });
-
-// module.export = questionsModel;
-$.post("/api/user_data", function (req, res) {
-    // db.User.create({
-    // scores: req.body
-    console.log(req.body)
-});
-
-    // $.post("/api/friends", match, function (data) {
-    //     $.post("/api/friends", userData, function (data) 
-
-

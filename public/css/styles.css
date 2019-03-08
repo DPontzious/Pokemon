@@ -3,8 +3,10 @@
 }
 
 body{
-  background-image: url("/public/images/pokemon.jpg");
+  background-image: url("https://www.ladn.eu/wp-content/uploads/2018/06/pokemon.jpg");
   background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 100%
 }
 
 .jumbotron{
