@@ -7,7 +7,7 @@ db.sequelize.query("SELECT * FROM pokemonfinder").then(data => fs.writeFile("dat
 
 fs.readFile("data.json", "utf-8", function (err, data) {
     const pokemon = JSON.parse(data);
-    console.log(pokemon);
+    // console.log(pokemon);
     // db.PokemonFinder.sync({force: true});
     pokemon[0].forEach(function (item) {
         db.PokemonFinder.create({ 
