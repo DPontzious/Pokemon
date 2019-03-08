@@ -28,5 +28,8 @@
     "passport-local": "^1.0.0",
     "sequelize": "^4.43.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"}
+
 }
